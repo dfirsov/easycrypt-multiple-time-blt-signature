@@ -1,0 +1,38 @@
+#!/bin/bash
+
+timeout=35
+
+check() {
+  echo checking $1;
+  if easycrypt -I . -I ./BLT -I ./KeyGen -I ./OTS -I ./Tags -I ./PRF -timeout $timeout $1 2>/dev/null;
+  then echo passed: $1;
+       echo "";
+  else echo failed: $1;
+       echo "";
+       echo "skipping remaining scripts";
+  exit 1;
+  fi;
+}
+
+# list of files to check
+check Timestamp.ec
+
+check Tags.ec
+check Tags/MultipleTimeConstruction.ec
+check Tags/ForwardResistance_Independent_Keys.ec
+check Tags/ForwardResistance_PRF_Keys.ec
+
+check BLT.ec
+check BLT/BLT2FR.ec
+
+check OTS.ec
+check OTS/OTSM.ec
+check OTS/OTSM2OTS.ec
+
+check KeyGen.ec
+check KeyGen/OTSMKeys.ec
+check KeyGen/TagKeysEff.ec
+
+check BasicProps.ec
+
+echo "DONE";
