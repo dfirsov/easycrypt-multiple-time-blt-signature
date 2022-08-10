@@ -3,7 +3,7 @@
 This repository contains the EasyCrypt code associated with the paper "D. Firsov, H. Lakk, A. Truu. [Verified Multiple-Time Signature Scheme from One-Time Signatures and Timestamping](https://eprint.iacr.org/2021/528)".
 
 ## Contents
- - [Timestamping.ec](Timestamping.ec) - ideal model of backdating resistant timestamping.
+ - [Timestamp.ec](Timestamp.ec) - ideal model of backdating resistant timestamping.
  - [OTS.ec](OTS.ec) - Abstract definitions related to one-time signature schemes.
 	 - [OTS/Lamport.ec](OTS/Lamport.ec) - Introduction to Easycrypt: Implementation and the security proof of the one-bit Lamport signature.
 	 - [OTS/OTSM.ec](OTS/OTSM.ec) - Auxiliary scheme where M one-time keypairs are generated and adversary wins if they manage to forge a signature for at least one of the keypair.
